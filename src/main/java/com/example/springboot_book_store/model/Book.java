@@ -17,16 +17,18 @@ import java.util.Set;
 public class Book {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Integer id;
 
     @Column(name = "title", unique = true)
     private String title;
 
+    @Column(name = "is_borrowed")
+    private boolean isBorrowed;
+
     @ManyToMany(cascade = CascadeType.ALL)
-    @JoinTable(name = "student_course",
-            joinColumns = @JoinColumn(name = "student_id"),
-            inverseJoinColumns = @JoinColumn(name = "course_id"))
-    @JsonManagedReference
+    @JoinTable(name = "book_author",
+            joinColumns = @JoinColumn(name = "book_id"),
+            inverseJoinColumns = @JoinColumn(name = "author_id"))
     private Set<Author> authors;
 
     @Override

@@ -1,5 +1,6 @@
 package com.example.springboot_book_store.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -16,12 +17,12 @@ import java.util.Set;
 public class Author {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Integer id;
 
     @Column(name = "name", unique = true)
     private String name;
 
-    @ManyToMany(mappedBy = "author")
+    @ManyToMany(mappedBy = "authors")
     private Set<Book> books;
 
     @Override
@@ -35,5 +36,10 @@ public class Author {
     @Override
     public int hashCode() {
         return Objects.hash(name);
+    }
+
+    public Author(Integer id, String name) {
+        this.id = id;
+        this.name = name;
     }
 }
