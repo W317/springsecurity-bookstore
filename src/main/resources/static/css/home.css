@@ -1,0 +1,56 @@
+body {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #f0f0f0;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+#storeTitle {
+    font-weight: bold;
+    font-size: 24px;
+}
+
+nav {
+    display: flex;
+}
+
+a {
+    display: inline-block;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    margin-right: 10px;
+}
+
+#homeBtn {
+    background-color: #007bff;
+    color: white;
+}
+
+#adminBtn {
+    background-color: #ffc107;
+    color: black;
+}
+
+#userBtn {
+    background-color: #28a745;
+    color: white;
+}
+
+section {
+    margin-top: 20px;
+    text-align: center;
+}
+
+h1 {
+    font-size: 2em;
+    margin-bottom: 10px;
+}

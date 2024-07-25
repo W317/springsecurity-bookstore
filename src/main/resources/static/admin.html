@@ -4,10 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Book Store</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/admin.css">
+    <link rel="stylesheet" href="css/home.css">
 </head>
 <body>
-<h1>Book Store</h1>
+<header>
+    <span id="storeTitle">Online Book Store</span>
+    <nav>
+        <a href="home.html" id="homeBtn">Home</a>
+        <a href="admin.html" id="adminBtn">Admin</a>
+        <a href="user.html" id="userBtn">User</a>
+    </nav>
+</header>
+<h1>Admin Page</h1>
 
 <h2>Books</h2>
 <table id="booksTable">
@@ -58,6 +67,6 @@
 </form>
 <div id="authorMessage"></div>
 
-<script src="js/script.js"></script>
+<script src="js/admin.js"></script>
 </body>
 </html>
