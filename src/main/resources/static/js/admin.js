@@ -50,10 +50,18 @@ function fetchBooks() {
                 }
 
                 const actionCell = row.insertCell(3);
-                const addButton = document.createElement('button');
-                addButton.textContent = 'Add New';
-                addButton.addEventListener('click', () => toggleForm('bookForm'));
-                actionCell.appendChild(addButton);
+
+                const editButton = document.createElement('button');
+                editButton.textContent = 'Edit';
+                editButton.classList.add("edit-button")
+
+                const deleteButton = document.createElement('button');
+                deleteButton.textContent = 'Delete';
+                deleteButton.classList.add("delete-button")
+                // addButton.addEventListener('click', () => toggleForm('bookForm'));
+
+                actionCell.appendChild(editButton);
+                actionCell.appendChild(deleteButton);
             });
         })
         .catch(error => {
@@ -75,10 +83,17 @@ function fetchAuthors() {
                 row.insertCell(0).textContent = author.id;
                 row.insertCell(1).textContent = author.name;
                 const actionCell = row.insertCell(2);
-                const addButton = document.createElement('button');
-                addButton.textContent = 'Add New';
-                addButton.addEventListener('click', () => toggleForm('authorForm'));
-                actionCell.appendChild(addButton);
+                const editButton = document.createElement('button');
+                editButton.textContent = 'Edit';
+                editButton.classList.add("edit-button")
+
+                const deleteButton = document.createElement('button');
+                deleteButton.textContent = 'Delete';
+                deleteButton.classList.add("delete-button")
+                // addButton.addEventListener('click', () => toggleForm('bookForm'));
+
+                actionCell.appendChild(editButton);
+                actionCell.appendChild(deleteButton);
             });
         });
 }

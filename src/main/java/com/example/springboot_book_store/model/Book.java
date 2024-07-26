@@ -19,11 +19,11 @@ public class Book {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(name = "title", unique = true)
+    @Column(name = "title", unique = true, nullable = false)
     private String title;
 
-    @Column(name = "is_borrowed")
-    private boolean isBorrowed;
+    @Column(name = "book_status")
+    private String bookStatus;
 
     @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(name = "book_author",

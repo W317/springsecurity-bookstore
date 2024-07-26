@@ -7,6 +7,7 @@ import com.example.springboot_book_store.mapper.AuthorMapper;
 import com.example.springboot_book_store.mapper.BookMapper;
 import com.example.springboot_book_store.model.Author;
 import com.example.springboot_book_store.model.Book;
+import com.example.springboot_book_store.model.BorrowStatus;
 import com.example.springboot_book_store.repository.AuthorRepository;
 import com.example.springboot_book_store.repository.BookRepository;
 import com.example.springboot_book_store.service.BookService;
@@ -65,6 +66,7 @@ public class BookServiceImpl implements BookService {
                 .stream()
                 .map(authorMapper::convertToDTO)
                 .collect(Collectors.toSet()));
+        bookDTO.setBookStatus(BorrowStatus.AVAILABLE.getStatus());
         Book book = bookMapper.convertToEntity(bookDTO);
         bookRepository.save(book);
     }

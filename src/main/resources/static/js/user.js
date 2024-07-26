@@ -28,18 +28,24 @@ function fetchBooks() {
                     authorsCell.textContent = 'Unknown';
                 }
 
-                const statusCell = row.insertCell(3)
-                if (book.is_borrowed === true) {
-                    statusCell.textContent = "borrowed";
-                } else {
-                    statusCell.textContent = "not be borrowed"
-                }
+                row.insertCell(3).textContent = book.bookStatus;
+
 
                 const actionCell = row.insertCell(4);
-                const addButton = document.createElement('button');
-                addButton.textContent = 'Borrow Book';
-                // addButton.addEventListener('click', () => toggleForm('bookForm'));
-                actionCell.appendChild(addButton);
+                const borrowButton = document.createElement('button');
+                borrowButton.textContent = 'Borrow';
+                borrowButton.addEventListener('click', () => borrowBook(book.id));
+                borrowButton.classList.add('borrow-button');
+                actionCell.appendChild(borrowButton);
+
+                if (book.bookStatus !== "AVAILABLE") {
+                    // Create Cancel Button
+                    const cancelButton = document.createElement('button');
+                    cancelButton.textContent = 'Cancel';
+                    cancelButton.addEventListener('click', () => cancelBook(book.id));
+                    cancelButton.classList.add('cancel-button');
+                    actionCell.appendChild(cancelButton);
+                }
             });
         })
         .catch(error => {
@@ -62,4 +68,41 @@ function fetchAuthors() {
                 row.insertCell(1).textContent = author.name;
             });
         });
+}
+
+// Borrow book
+function borrowBook(bookId) {
+    fetch(`/api/books/borrow/${bookId}`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    })
+        .then(response => {
+            if (response.ok) {
+                alert('Book borrowed successfully!');
+            } else {
+                return response.text().then(text => { throw new Error(text); });
+            }
+            fetchBooks();
+        })
+        .catch(error => alert('Error borrowing book: ' + error.message));
+}
+
+function cancelBook(bookId) {
+    fetch(`/api/books/cancel/${bookId}`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    })
+        .then(response => {
+            if (response.ok) {
+                alert('Book cancelled borrow successfully!');
+            } else {
+                return response.text().then(text => { throw new Error(text); });
+            }
+            fetchBooks();
+        })
+        .catch(error => alert('Error cancelling book: ' + error.message));
 }

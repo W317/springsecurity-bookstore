@@ -19,7 +19,7 @@ public class BookMapper {
         return new BookDTO(
                 book.getId(),
                 book.getTitle(),
-                book.isBorrowed(),
+                book.getBookStatus(),
                 authorDTOs
         );
     }
@@ -31,7 +31,7 @@ public class BookMapper {
         return new Book(
                 bookDTO.getId(),
                 bookDTO.getTitle(),
-                bookDTO.isBorrowed(),
+                bookDTO.getBookStatus(),
                 authors
         );
     }

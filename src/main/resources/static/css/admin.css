@@ -72,13 +72,33 @@ tr:hover {
     background-color: #ddd;
 }
 
+.edit-button {
+    background-color: #007bff;
+    color: white;
+}
+
+.edit-button:hover {
+    background-color: #034994;
+}
+
+.delete-button {
+    background-color: #ffc107;
+    color: black;
+}
+
+.delete-button:hover {
+    background-color: #9a7403;
+}
+
 button {
     margin-top: 10px;
     padding: 10px 15px;
     background-color: #4CAF50;
     color: white;
     border: none;
+    border-radius: 5px;
     cursor: pointer;
+    margin-right: 5px;
 }
 
 button:hover {

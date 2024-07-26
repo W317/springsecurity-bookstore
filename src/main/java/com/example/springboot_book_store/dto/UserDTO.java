@@ -7,11 +7,11 @@ import lombok.NoArgsConstructor;
 import java.util.Set;
 
 @Data
-@NoArgsConstructor
 @AllArgsConstructor
-public class BookDTO {
+@NoArgsConstructor
+public class UserDTO {
     private int id;
-    private String title;
-    private String bookStatus;
-    private Set<AuthorDTO> authors;
+    private String username;
+    private String email;
+    private Set<String> roles;
 }
