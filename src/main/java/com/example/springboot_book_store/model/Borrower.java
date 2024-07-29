@@ -12,7 +12,7 @@ import java.util.Collection;
 @NoArgsConstructor
 @Entity
 @Table(name = "user")
-public class User {
+public class Borrower {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
