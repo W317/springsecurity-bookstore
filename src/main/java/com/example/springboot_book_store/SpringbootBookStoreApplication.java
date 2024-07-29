@@ -20,37 +20,37 @@ import java.util.*;
 
 @SpringBootApplication
 public class SpringbootBookStoreApplication {
-//	@Autowired
-//	private AdminRepository adminRepository;
-//
-//	@Autowired
-//	private UserRepository userRepository;
-//
-//	@Autowired
-//	private PasswordEncoder passwordEncoder;
-//
-//	@PostConstruct
-//	public void createSampleUsers() {
-//		// Get your password encoder bean
-//		Role role = new Role(5, "USER");
-//		User user = new User("user", passwordEncoder.encode("12345"),
-//				Collections.singletonList(new SimpleGrantedAuthority("USER")));
-//
-//		Collection<Role> roleCollections = new ArrayList<>();
-//		roleCollections.add(role);
-//		Borrower user1 = new Borrower(10, user.getUsername(), user.getPassword(), "", roleCollections );
-//		userRepository.save(user1);
-//
-//		Role roleAdmin = new Role(6, "ADMIN");
-//		User admin = new User("admin", passwordEncoder.encode("12345"),
-//				Collections.singletonList(new SimpleGrantedAuthority("ADMIN")
-//		));
-//
-//		Collection<Role> roleCollections1 = new ArrayList<>();
-//		roleCollections1.add(roleAdmin);
-//		Admin admin1 = new Admin(10, admin.getUsername(), admin.getPassword(), "", roleCollections1 );
-//		adminRepository.save(admin1);
-//	}
+	@Autowired
+	private AdminRepository adminRepository;
+
+	@Autowired
+	private UserRepository userRepository;
+
+	@Autowired
+	private PasswordEncoder passwordEncoder;
+
+	@PostConstruct
+	public void createSampleUsers() {
+		// Get your password encoder bean
+		Role role = new Role(5, "USER");
+		User user = new User("user", passwordEncoder.encode("12345"),
+				Collections.singletonList(new SimpleGrantedAuthority("USER")));
+
+		Collection<Role> roleCollections = new ArrayList<>();
+		roleCollections.add(role);
+		Borrower user1 = new Borrower(10, user.getUsername(), user.getPassword(), "", roleCollections );
+		userRepository.save(user1);
+
+		Role roleAdmin = new Role(6, "ADMIN");
+		User admin = new User("admin", passwordEncoder.encode("12345"),
+				Collections.singletonList(new SimpleGrantedAuthority("ADMIN")
+		));
+
+		Collection<Role> roleCollections1 = new ArrayList<>();
+		roleCollections1.add(roleAdmin);
+		Admin admin1 = new Admin(10, admin.getUsername(), admin.getPassword(), "", roleCollections1 );
+		adminRepository.save(admin1);
+	}
 
 	public static void main(String[] args) {
 
