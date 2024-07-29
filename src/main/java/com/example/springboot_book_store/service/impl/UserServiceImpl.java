@@ -1,24 +1,19 @@
 package com.example.springboot_book_store.service.impl;
 
-import com.example.springboot_book_store.dto.BookDTO;
-import com.example.springboot_book_store.mapper.BookMapper;
 import com.example.springboot_book_store.model.Book;
 import com.example.springboot_book_store.model.BorrowStatus;
 import com.example.springboot_book_store.repository.BookRepository;
 import com.example.springboot_book_store.service.UserService;
+import lombok.AccessLevel;
+import lombok.RequiredArgsConstructor;
+import lombok.experimental.FieldDefaults;
 import org.springframework.stereotype.Service;
 
-import java.util.Optional;
-
 @Service
+@RequiredArgsConstructor
+@FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)
 public class UserServiceImpl implements UserService {
-    private BookRepository bookRepository;
-    private BookMapper bookMapper;
-
-    public UserServiceImpl(BookRepository bookRepository, BookMapper bookMapper) {
-        this.bookRepository = bookRepository;
-        this.bookMapper = bookMapper;
-    }
+    BookRepository bookRepository;
 
     @Override
     public void sendRequest(int bookId) {

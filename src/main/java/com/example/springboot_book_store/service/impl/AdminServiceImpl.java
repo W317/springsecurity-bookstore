@@ -6,17 +6,17 @@ import com.example.springboot_book_store.model.Book;
 import com.example.springboot_book_store.model.BorrowStatus;
 import com.example.springboot_book_store.repository.BookRepository;
 import com.example.springboot_book_store.service.AdminService;
+import lombok.AccessLevel;
+import lombok.RequiredArgsConstructor;
+import lombok.experimental.FieldDefaults;
 import org.springframework.stereotype.Service;
 
 @Service
+@RequiredArgsConstructor
+@FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)
 public class AdminServiceImpl implements AdminService {
-    private BookRepository bookRepository;
-    private BookMapper bookMapper;
-
-    public AdminServiceImpl(BookRepository bookRepository, BookMapper bookMapper) {
-        this.bookRepository = bookRepository;
-        this.bookMapper = bookMapper;
-    }
+    BookRepository bookRepository;
+    BookMapper bookMapper;
 
     @Override
     public void exceptRequest(BookDTO bookDTO) {

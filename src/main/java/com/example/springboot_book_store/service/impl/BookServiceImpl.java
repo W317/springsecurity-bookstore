@@ -11,6 +11,9 @@ import com.example.springboot_book_store.model.BorrowStatus;
 import com.example.springboot_book_store.repository.AuthorRepository;
 import com.example.springboot_book_store.repository.BookRepository;
 import com.example.springboot_book_store.service.BookService;
+import lombok.AccessLevel;
+import lombok.RequiredArgsConstructor;
+import lombok.experimental.FieldDefaults;
 import org.springframework.stereotype.Service;
 
 import java.util.HashSet;
@@ -19,21 +22,16 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 @Service
+@RequiredArgsConstructor
+@FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)
 public class BookServiceImpl implements BookService {
-    private BookRepository bookRepository;
+    BookRepository bookRepository;
 
-    private AuthorRepository authorRepository;
+    AuthorRepository authorRepository;
 
-    private BookMapper bookMapper;
+    BookMapper bookMapper;
 
-    private AuthorMapper authorMapper;
-
-    public BookServiceImpl(BookRepository bookRepository, AuthorRepository authorRepository, BookMapper bookMapper, AuthorMapper authorMapper) {
-        this.bookRepository = bookRepository;
-        this.authorRepository = authorRepository;
-        this.bookMapper = bookMapper;
-        this.authorMapper = authorMapper;
-    }
+    AuthorMapper authorMapper;
 
     @Override
     public Set<BookDTO> listAllBooks() {

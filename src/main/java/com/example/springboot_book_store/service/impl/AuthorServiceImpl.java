@@ -6,6 +6,9 @@ import com.example.springboot_book_store.mapper.AuthorMapper;
 import com.example.springboot_book_store.model.Author;
 import com.example.springboot_book_store.repository.AuthorRepository;
 import com.example.springboot_book_store.service.AuthorService;
+import lombok.AccessLevel;
+import lombok.RequiredArgsConstructor;
+import lombok.experimental.FieldDefaults;
 import org.springframework.stereotype.Service;
 
 import java.util.HashSet;
@@ -13,15 +16,12 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 @Service
+@RequiredArgsConstructor
+@FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)
 public class AuthorServiceImpl implements AuthorService {
-    private AuthorRepository authorRepository;
+    AuthorRepository authorRepository;
 
-    private AuthorMapper authorMapper;
-
-    public AuthorServiceImpl(AuthorRepository authorRepository, AuthorMapper authorMapper) {
-        this.authorRepository = authorRepository;
-        this.authorMapper = authorMapper;
-    }
+    AuthorMapper authorMapper;
 
     @Override
     public Set<AuthorDTO> listAllAuthors() {

@@ -1,17 +1,18 @@
 package com.example.springboot_book_store.dto;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
+import lombok.experimental.FieldDefaults;
 
 import java.util.Set;
 
 @Data
+@Builder
 @NoArgsConstructor
 @AllArgsConstructor
+@FieldDefaults(level = AccessLevel.PRIVATE)
 public class AdminDTO {
-    private int id;
-    private String username;
-    private String email;
-    private Set<String> roles;
+    int id;
+    String username;
+    String email;
+    Set<String> roles;
 }

@@ -3,6 +3,9 @@ package com.example.springboot_book_store.controller;
 import com.example.springboot_book_store.dto.BookDTO;
 import com.example.springboot_book_store.model.Book;
 import com.example.springboot_book_store.service.BookService;
+import lombok.AccessLevel;
+import lombok.RequiredArgsConstructor;
+import lombok.experimental.FieldDefaults;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -10,13 +13,11 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Set;
 
 @RestController
+@RequiredArgsConstructor
+@FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)
 @RequestMapping("api/books")
 public class BookController {
-    private BookService bookService;
-
-    public BookController(BookService bookService) {
-        this.bookService = bookService;
-    }
+    BookService bookService;
 
     @GetMapping
     public ResponseEntity<Set<BookDTO>> showAllBooks() {
