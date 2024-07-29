@@ -60,6 +60,7 @@ This project implements a Bookstore Management System that allows digitization o
    - admin account : admin / 12345
 
 2.  **Access the API**
+- Home : (http://localhost:8081/home.html)
 - Login: POST /api/login
 - Register (for borrowers): POST /api/register
 - Add Books: POST /api/books
