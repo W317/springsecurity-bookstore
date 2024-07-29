@@ -56,6 +56,9 @@ This project implements a Bookstore Management System that allows digitization o
    ```bash
    git clone https://github.com/W317/springsecurity-bookstore.git
 
+   - user account : user / 12345
+   - admin account : admin / 12345
+
 2.  **Access the API**
 - Login: POST /api/login
 - Register (for borrowers): POST /api/register
